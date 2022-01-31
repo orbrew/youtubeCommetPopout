@@ -18,14 +18,19 @@ function openComments() {
   var commentsContent = getPrimary().removeChild(getComments());
   var commentsBox = document.createElement("div");
   var commentsBoxHeader = document.createElement("div");
+  var commentsContainer = document.createElement("div");
   commentsBox.id = "comments-box";
-  commentsBoxHeader.id = "comments-box-header"
-  commentsBoxHeader.innerHTML = "Drag here"
+  commentsBoxHeader.id = "comments-box-header";
+  commentsContainer.id = "comments-container";
+  commentsBoxHeader.innerHTML = "Drag here";
   
-  commentsBox.className = "style-scope ytd-watch-flexy";
+  commentsContainer.className = "style-scope ytd-watch-flexy";
   contentElement = document.getElementById("primary");
-  contentElement.appendChild(commentsBox);
-  document.getElementById("comments-box").appendChild(commentsBoxHeader);
+
+  contentElement.appendChild(commentsContainer);
+  
+  commentsContainer.appendChild(commentsBox);
+  //document.getElementById("comments-box").appendChild(commentsBoxHeader);
   document.getElementById("comments-box").appendChild(commentsContent);
   
  
@@ -45,25 +50,26 @@ function getPrimary() {
 
 function dragEle() {
   var commentsBox = document.getElementById("comments-box");
-  var commentsBoxHeader = document.getElementById("comments-box-header");
+  //var commentsBoxHeader = document.getElementById("comments-box-header");
+  var commentsContainer = document.getElementById("comments-container");
   var initX, initY, mousePressX, mousePressY;
 
-  commentsBoxHeader.addEventListener(
+  commentsBox.addEventListener(
     "mousedown",
     function (event) {
       window.addEventListener('selectstart', disableSelect);
-      initX = commentsBox.offsetLeft;
-      initY = commentsBox.offsetTop;
+      initX = commentsContainer.offsetLeft;
+      initY = commentsContainer.offsetTop;
       mousePressX = event.clientX;
       mousePressY = event.clientY;
 
-      commentsBoxHeader.addEventListener("mousemove", repositionElement, false);
+      commentsBox.addEventListener("mousemove", repositionElement, false);
 
       document.addEventListener(
         "mouseup",
         function () {
           window.removeEventListener('selectstart', disableSelect);
-          commentsBoxHeader.removeEventListener(
+          commentsBox.removeEventListener(
             "mousemove",
             repositionElement,
             false
@@ -76,8 +82,8 @@ function dragEle() {
   );
 
   function repositionElement(event) {
-    commentsBox.style.left = initX + event.clientX - mousePressX + "px";
-    commentsBox.style.top = initY + event.clientY - mousePressY + "px";
+    commentsContainer.style.left = initX + event.clientX - mousePressX + "px";
+    commentsContainer.style.top = initY + event.clientY - mousePressY + "px";
   }
 }
 

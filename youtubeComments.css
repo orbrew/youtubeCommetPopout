@@ -1,5 +1,5 @@
-#comments-box {
-    background-color: darkslategrey;
+#comments-container {
+    background-color: #181818;
     position: absolute;
     height: 30vw;
     width: 30vw;
@@ -12,11 +12,11 @@
     z-index: 501;
 }
 
-#comments-box-header {
+/* #comments-box-header {
     position: absolute;
     z-index: 501;
 
-}
+} */
 
 #secondary::-webkit-scrollbar {
     display: none;
