@@ -1,0 +1,23 @@
+#comments-box {
+    background-color: darkslategrey;
+    position: absolute;
+    height: 30vw;
+    width: 30vw;
+    left: 50vw;
+    top: 20vw;
+    overflow: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    resize: both;
+    z-index: 501;
+}
+
+#comments-box-header {
+    position: absolute;
+    z-index: 501;
+
+}
+
+#secondary::-webkit-scrollbar {
+    display: none;
+}
