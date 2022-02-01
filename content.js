@@ -1,4 +1,5 @@
 let theme;
+var origElement;
 window.onload = function () {
   theme = document.documentElement.getAttribute("dark");
   console.log(theme);
@@ -18,9 +19,10 @@ commentsButton.className = "comments ytp-button";
 commentsButton.style.width = "auto";
 commentsButton.innerHTML = "Comments";
 commentsButton.style.cssFloat = "left";
-commentsButton.onclick = openComments;
+commentsButton.onclick = toggleComments;
 
 function openComments() {
+  console.log("opening...");
   var contentElement;
   var commentsContent = getPrimary().removeChild(getComments());
   var commentsBox = document.createElement("div");
@@ -37,6 +39,8 @@ function openComments() {
     commentsContainer.className = "dark";
   }
   contentElement = document.getElementById("primary");
+  origElement = contentElement;
+  console.log(origElement)
 
   contentElement.appendChild(commentsContainer);
 
@@ -47,7 +51,14 @@ function openComments() {
   dragEle();
 }
 
-function closeComments() {}
+function closeComments() {
+  console.log("closing...");
+  var commentsBox = document.getElementById("comments-box");
+  var commentsContainer = document.getElementById("comments-container");
+  var commentsContent = commentsBox.removeChild(getComments());
+  getPrimary().appendChild(commentsContent);
+  commentsContainer.remove();
+}
 
 function toggleComments() {
   if (!document.getElementById("comments-container")) {
@@ -107,7 +118,7 @@ function dragEle() {
 //prevent text selection while dragging
 function disableSelect(event) {
   event.preventDefault();
-}
+} 
 
 /* function dragTest() {
   var dragItem = document.getElementById("comments-box");

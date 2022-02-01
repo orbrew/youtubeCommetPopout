@@ -1,5 +1,5 @@
 #comments-container {
-	-webkit-drag: element;
+	/* -webkit-user-drag: element; */
   background-color: #e7e7e7ee;
   position: fixed;
   height: 30vw;
