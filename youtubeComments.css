@@ -1,22 +1,22 @@
 #comments-container {
-    background-color: #181818;
-    position: absolute;
+    background-color: #303030ee;
+    position: fixed;
     height: 30vw;
-    width: 30vw;
-    left: 50vw;
-    top: 20vw;
+    width: 20vw;
+    left: 70vw;
+    top: 5vw;
     overflow: auto;
     overflow-x: hidden;
     overscroll-behavior: contain;
     resize: both;
     z-index: 501;
+    draggable: true;
 }
 
-/* #comments-box-header {
-    position: absolute;
-    z-index: 501;
-
-} */
+#comments-box {
+    
+    margin-left: 10px
+} 
 
 #secondary::-webkit-scrollbar {
     display: none;

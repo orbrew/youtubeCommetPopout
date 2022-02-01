@@ -36,7 +36,19 @@ function openComments() {
  
   dragEle()
   //dragElement(document.getElementById("comments-box"));
-  console.log("pushed");
+}
+
+function closeComments(){
+
+}
+
+function toggleComments() {
+  if (!document.getElementById("comments-container")){
+    openComments()
+  }
+  else{
+    closeComments()
+  }
 }
 
 function getComments() {
